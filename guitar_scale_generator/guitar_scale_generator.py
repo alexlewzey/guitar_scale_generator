@@ -3,6 +3,7 @@
 todo:
     packaging
         + tidy up the code
+        + break up the main func into smaller readable functions
         + add necessary documentation
     graphic
         + add fret index header
