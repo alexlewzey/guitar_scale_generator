@@ -8,6 +8,7 @@ twine = "*"
 
 [packages]
 pillow = "*"
+bleach = ">=3.1.2"
 
 [requires]
 python_version = "3.7"
