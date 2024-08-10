@@ -1,4 +1,3 @@
-#! python3
 """
 todo:
     packaging
@@ -23,12 +22,10 @@ from PIL import Image, ImageFont, ImageDraw
 
 logger = logging.getLogger(__name__)
 
-LOG_FILE = 'logs.txt'
 logging.basicConfig(
     format='%(asctime)s %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s',
     datefmt='%d-%m-%Y %H:%M:%S',
     level=logging.DEBUG,
-    filename=LOG_FILE,
 )
 
 Rgb = Tuple[int, int, int]
@@ -392,7 +389,7 @@ def _draw_rectangle(img: Image, rectangle: GeometricRectangle, fill: Any, text: 
     draw.rectangle(xy=(pt1.get_xy(), pt2.get_xy()), fill=fill, outline=outline, width=outline_width, *args, **kwargs)
 
     if text:
-        font = ImageFont.truetype("arial", size=font_size)
+        font = ImageFont.load_default()
         text_width, text_height = draw.textsize(text, font=font)
         x_text = ((rectangle.dimensions.width - text_width) / 2) + pt1.x
         y_text = ((rectangle.dimensions.height - text_height) / 2) + pt1.y
